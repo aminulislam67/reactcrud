@@ -1,46 +1,32 @@
 import React, { useState } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const navigate = useNavigate();
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const userData = {
-      username,
-      password,
-    };
+    // Process the login data here or make an API request
 
-    try {
-      // Make a POST request to the server to process the login data
-      await axios.post('/api/login', userData);
-      // Clear the form fields after successful submission
-      setUsername('');
-      setPassword('');
-      // Redirect to the dashboard or desired destination
-      navigate('/AddStudentPage');
-    } catch (error) {
-      console.error(error);
-      // Handle error during login submission
-      // Display an error message or perform any other necessary actions
-    }
+    // Clear the form fields after submission
+    setUsername('');
+    setPassword('');
   };
 
   return (
     <Container className="d-flex justify-content-center align-items-center vh-90">
-      <div
-        className="p-4"
-        style={{
-          width: '400px',
-          marginTop: '100px',
-          boxShadow: '0 8px px -8px rgba(0, 191, 255, 0.8)',
-        }}
+
+<div
+    className="p-4"
+    style={{
+      width: '400px',
+      marginTop: '100px',
+      boxShadow: '0 8px 40px -8px rgba(0, 191, 255, 0.8)',
+    }}
       >
+
         <h2 className="text-center">Login</h2>
         <Form onSubmit={handleSubmit}>
           <Form.Group controlId="username">
