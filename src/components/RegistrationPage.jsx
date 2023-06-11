@@ -20,7 +20,7 @@ const RegistrationPage = () => {
     setLastName('');
     setEmail('');
     setUsername('');
-    setDateOfBirth('');
+    setDateOfBirth('');             
     setGender('');
     setPassword('');
   };
