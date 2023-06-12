@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
 
-const AddStudentPage = () => {
+const AddStudentPage = ({ history }) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [studentId, setStudentId] = useState('');
@@ -12,39 +12,41 @@ const AddStudentPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const studentData = {
+    const newStudent = {
       firstName,
       lastName,
       studentId,
       email,
       dateOfBirth,
-      admissionYear,
+      admissionYear
     };
 
     try {
-      const response = await fetch('http://localhost:5000/students', {
+      const response = await fetch('/students', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify(studentData),
+        body: JSON.stringify(newStudent)
       });
 
       if (response.ok) {
-        console.log('Student data saved successfully!');
-        // Clear the form fields after successful submission
-        setFirstName('');
-        setLastName('');
-        setStudentId('');
-        setEmail('');
-        setDateOfBirth('');
-        setAdmissionYear('');
+        // Redirect to the display page
+        history.push('/display');
       } else {
-        console.error('Failed to save student data');
+        console.error('Failed to add student');
       }
     } catch (error) {
-      console.error('Error saving student data:', error);
+      console.error('Error adding student:', error);
     }
+
+    // Clear the form fields after submission
+    setFirstName('');
+    setLastName('');
+    setStudentId('');
+    setEmail('');
+    setDateOfBirth('');
+    setAdmissionYear('');
   };
 
   return (
@@ -57,7 +59,7 @@ const AddStudentPage = () => {
           boxShadow: '0 8px 40px -8px rgba(0, 191, 255, 0.8)',
         }}
       >
-        <h2 className="text-center">Add Student Information</h2>
+       <h2 className="text-center">Add Student Information</h2>
         <Form onSubmit={handleSubmit}>
           <Form.Group controlId="firstName">
             <Form.Label>First Name:</Form.Label>

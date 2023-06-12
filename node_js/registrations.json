@@ -70,5 +70,23 @@
     "dateOfBirth": "2023-06-14",
     "gender": "male",
     "password": "222"
+  },
+  {
+    "firstName": "Aminul",
+    "lastName": "Islam",
+    "email": "aminulislam21123@gmail.com",
+    "username": "222",
+    "dateOfBirth": "2023-06-15",
+    "gender": "male",
+    "password": "222"
+  },
+  {
+    "firstName": "Ezio",
+    "lastName": "Auditore",
+    "email": "md.aminul.islam2@g.bracu.ac.bd",
+    "username": "am33",
+    "dateOfBirth": "2023-06-15",
+    "gender": "male",
+    "password": "444"
   }
 ]
