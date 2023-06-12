@@ -9,28 +9,53 @@ const AddStudentPage = () => {
   const [dateOfBirth, setDateOfBirth] = useState('');
   const [admissionYear, setAdmissionYear] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Process the student information here or make an API request
 
-    // Clear the form fields after submission
-    setFirstName('');
-    setLastName('');
-    setStudentId('');
-    setEmail('');
-    setDateOfBirth('');
-    setAdmissionYear('');
+    const studentData = {
+      firstName,
+      lastName,
+      studentId,
+      email,
+      dateOfBirth,
+      admissionYear,
+    };
+
+    try {
+      const response = await fetch('http://localhost:5000/students', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(studentData),
+      });
+
+      if (response.ok) {
+        console.log('Student data saved successfully!');
+        // Clear the form fields after successful submission
+        setFirstName('');
+        setLastName('');
+        setStudentId('');
+        setEmail('');
+        setDateOfBirth('');
+        setAdmissionYear('');
+      } else {
+        console.error('Failed to save student data');
+      }
+    } catch (error) {
+      console.error('Error saving student data:', error);
+    }
   };
 
   return (
     <Container className="d-flex justify-content-center align-items-center vh-80">
       <div
-    className="p-4"
-    style={{
-      width: '400px',
-      marginTop: '50px',
-      boxShadow: '0 8px 40px -8px rgba(0, 191, 255, 0.8)',
-    }}
+        className="p-4"
+        style={{
+          width: '400px',
+          marginTop: '50px',
+          boxShadow: '0 8px 40px -8px rgba(0, 191, 255, 0.8)',
+        }}
       >
         <h2 className="text-center">Add Student Information</h2>
         <Form onSubmit={handleSubmit}>

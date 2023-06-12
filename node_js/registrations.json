@@ -16,5 +16,59 @@
     "dateOfBirth": "2023-06-14",
     "gender": "male",
     "password": "321"
+  },
+  {
+    "firstName": "Lio",
+    "lastName": "messi",
+    "email": "ai283087@gmail.com",
+    "username": "am",
+    "dateOfBirth": "2023-06-14",
+    "gender": "male",
+    "password": "432"
+  },
+  {
+    "firstName": "",
+    "lastName": "",
+    "email": "",
+    "username": "",
+    "dateOfBirth": "",
+    "gender": "",
+    "password": ""
+  },
+  {
+    "firstName": "Farden",
+    "lastName": "Khan",
+    "email": "farden.ehsan.khan@g.bracu.ac.bd",
+    "username": "fr",
+    "dateOfBirth": "2023-06-07",
+    "gender": "male",
+    "password": "fr"
+  },
+  {
+    "firstName": "Ahmed",
+    "lastName": "Ruhan",
+    "email": "ahmed.mahir.ruhan@g.bracu.ac.bd",
+    "username": "rh",
+    "dateOfBirth": "2023-06-14",
+    "gender": "male",
+    "password": "123"
+  },
+  {
+    "firstName": "Lio",
+    "lastName": "messo",
+    "email": "messi@gmail.com",
+    "username": "aminul1112",
+    "dateOfBirth": "2023-06-13",
+    "gender": "male",
+    "password": "111"
+  },
+  {
+    "firstName": "Lio",
+    "lastName": "messi",
+    "email": "ai283087@gmail.com",
+    "username": "a2",
+    "dateOfBirth": "2023-06-14",
+    "gender": "male",
+    "password": "222"
   }
 ]

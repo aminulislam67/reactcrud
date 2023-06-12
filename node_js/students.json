@@ -1,0 +1,18 @@
+[
+  {
+    "firstName": "Ezio",
+    "lastName": "Auditore",
+    "studentId": "s21",
+    "email": "md.aminul.islam2@g.bracu.ac.bd",
+    "dateOfBirth": "2023-06-08",
+    "admissionYear": "2222"
+  },
+  {
+    "firstName": "Ahmed",
+    "lastName": "Ruhan",
+    "studentId": "21",
+    "email": "ahmed.mahir.ruhan@g.bracu.ac.bd",
+    "dateOfBirth": "2023-06-13",
+    "admissionYear": "2222"
+  }
+]
