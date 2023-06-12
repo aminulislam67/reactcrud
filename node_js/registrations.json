@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "firstName": "Aminul",
+    "lastName": "Islam",
+    "email": "aminulislam21123@gmail.com",
+    "username": "am21",
+    "dateOfBirth": "2023-06-13",
+    "gender": "male",
+    "password": "123"
+  },
+  {
+    "firstName": "Ezio",
+    "lastName": "Auditore",
+    "email": "md.aminul.islam2@g.bracu.ac.bd",
+    "username": "am21",
+    "dateOfBirth": "2023-06-14",
+    "gender": "male",
+    "password": "321"
+  }
+]

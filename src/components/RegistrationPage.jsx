@@ -11,29 +11,55 @@ const RegistrationPage = () => {
   const [gender, setGender] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Process the registration data here or make an API request
-
-    // Clear the form fields after submission
-    setFirstName('');
-    setLastName('');
-    setEmail('');
-    setUsername('');
-    setDateOfBirth('');             
-    setGender('');
-    setPassword('');
+  
+    const registrationData = {
+      firstName,
+      lastName,
+      email,
+      username,
+      dateOfBirth,
+      gender,
+      password,
+    };
+  
+    try {
+      const response = await fetch('http://localhost:5000/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(registrationData),
+      });
+  
+      if (response.ok) {
+        console.log('Registration successful!');
+        // Clear the form fields after successful registration
+        setFirstName('');
+        setLastName('');
+        setEmail('');
+        setUsername('');
+        setDateOfBirth('');
+        setGender('');
+        setPassword('');
+      } else {
+        console.error('Registration failed.');
+      }
+    } catch (error) {
+      console.error('Error registering:', error);
+    }
   };
 
   return (
     <Container className="d-flex justify-content-center align-items-center vh-10">
       <div
-    className="p-4"
-    style={{
-      width: '400px',
-      marginTop: '10px',
-      boxShadow: '0 8px 40px -8px rgba(0, 191, 255, 0.8)',
-    }}
+        className="p-4"
+        style={{
+          width: '400px',
+          marginTop: '10px',
+          boxShadow: '0 8px 40px -8px rgba(0, 191, 255, 0.8)',
+        }}
       >
         <h2>Registration</h2>
         <Form onSubmit={handleSubmit}>
@@ -115,4 +141,3 @@ const RegistrationPage = () => {
 };
 
 export default RegistrationPage;
-
