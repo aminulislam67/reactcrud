@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const AddStudentPage = ({ history }) => {
   const [firstName, setFirstName] = useState('');
@@ -9,6 +10,7 @@ const AddStudentPage = ({ history }) => {
   const [dateOfBirth, setDateOfBirth] = useState('');
   const [admissionYear, setAdmissionYear] = useState('');
 
+  var navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -22,24 +24,24 @@ const AddStudentPage = ({ history }) => {
     };
 
     try {
-      const response = await fetch('/students', {
+      const response = await fetch('http://localhost:5000/students', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(newStudent)
       });
-
+  
       if (response.ok) {
         // Redirect to the display page
-        history.push('/display');
+        return navigate("/display");
       } else {
         console.error('Failed to add student');
       }
     } catch (error) {
       console.error('Error adding student:', error);
     }
-
+  
     // Clear the form fields after submission
     setFirstName('');
     setLastName('');
