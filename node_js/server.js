@@ -26,11 +26,11 @@ app.post('/register', (req, res) => {
   try {
     fs.writeFileSync('registrations.json', JSON.stringify(existingData, null, 2));
     console.log('Registration data saved successfully!');
+    res.sendStatus(200);
   } catch (error) {
     console.error('Error saving registration data:', error);
+    res.sendStatus(500);
   }
-
-  res.sendStatus(200);
 });
 
 // Define a POST route to handle the login data
@@ -76,11 +76,23 @@ app.post('/students', (req, res) => {
   try {
     fs.writeFileSync('students.json', JSON.stringify(existingData, null, 2));
     console.log('Student data saved successfully!');
+    res.sendStatus(200);
   } catch (error) {
     console.error('Error saving student data:', error);
+    res.sendStatus(500);
   }
+});
 
-  res.sendStatus(200);
+// Define a GET route to fetch student data
+app.get('/students', (req, res) => {
+  try {
+    const data = fs.readFileSync('students.json');
+    const students = JSON.parse(data);
+    res.json(students);
+  } catch (error) {
+    console.error('Error reading student data:', error);
+    res.sendStatus(500);
+  }
 });
 
 // Set the Access-Control-Allow-Origin header for all routes
