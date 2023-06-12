@@ -69,6 +69,10 @@ app.post('/students', (req, res) => {
     console.error('Error reading student data:', error);
   }
 
+  // Generate a unique ID for the new student
+  const newStudentId = Math.max(0, ...existingData.map(student => student.studentId)) + 1;
+  studentData.studentId = newStudentId;
+
   // Add the new student data to the existing data
   existingData.push(studentData);
 
@@ -83,15 +87,104 @@ app.post('/students', (req, res) => {
   }
 });
 
-// Define a GET route to fetch student data
+// Define a GET route to fetch paginated students
 app.get('/students', (req, res) => {
+  const page = parseInt(req.query.page) || 1; // Get the page number from the query parameters
+  const pageSize = 2; // Define the number of students to display per page
+
   try {
     const data = fs.readFileSync('students.json');
     const students = JSON.parse(data);
-    res.json(students);
+
+    const totalStudents = students.length;
+    const totalPages = Math.ceil(totalStudents / pageSize);
+
+    // Calculate the starting and ending indices for the current page
+    const startIndex = (page - 1) * pageSize;
+    const endIndex = Math.min(startIndex + pageSize, totalStudents);
+
+    // Get the students for the current page
+    const currentPageStudents = students.slice(startIndex, endIndex);
+
+    res.json({
+      currentPage: page,
+      totalPages: totalPages,
+      students: currentPageStudents
+    });
   } catch (error) {
     console.error('Error reading student data:', error);
     res.sendStatus(500);
+  }
+});
+
+// Define a DELETE route to delete a student by ID
+app.delete('/students/:id', (req, res) => {
+  const studentId = parseInt(req.params.id);
+
+  // Read the existing data from the JSON file
+  let existingData = [];
+  try {
+    const data = fs.readFileSync('students.json');
+    existingData = JSON.parse(data);
+  } catch (error) {
+    console.error('Error reading student data:', error);
+    res.sendStatus(500);
+  }
+
+  // Find the index of the student with the provided ID
+  const index = existingData.findIndex(student => student.studentId === studentId);
+
+  if (index !== -1) {
+    // Remove the student from the existing data
+    existingData.splice(index, 1);
+
+    // Write the updated data back to the JSON file
+    try {
+      fs.writeFileSync('students.json', JSON.stringify(existingData, null, 2));
+      console.log('Student data deleted successfully!');
+      res.sendStatus(200);
+    } catch (error) {
+      console.error('Error deleting student data:', error);
+      res.sendStatus(500);
+    }
+  } else {
+    res.sendStatus(404);
+  }
+});
+
+// Define a PUT route to update a student by ID
+app.put('/students/:id', (req, res) => {
+  const studentId = parseInt(req.params.id);
+  const updatedStudentData = req.body;
+
+  // Read the existing data from the JSON file
+  let existingData = [];
+  try {
+    const data = fs.readFileSync('students.json');
+    existingData = JSON.parse(data);
+  } catch (error) {
+    console.error('Error reading student data:', error);
+    res.sendStatus(500);
+  }
+
+  // Find the student with the provided ID
+  const student = existingData.find(student => student.studentId === studentId);
+
+  if (student) {
+    // Update the student data
+    Object.assign(student, updatedStudentData);
+
+    // Write the updated data back to the JSON file
+    try {
+      fs.writeFileSync('students.json', JSON.stringify(existingData, null, 2));
+      console.log('Student data updated successfully!');
+      res.sendStatus(200);
+    } catch (error) {
+      console.error('Error updating student data:', error);
+      res.sendStatus(500);
+    }
+  } else {
+    res.sendStatus(404);
   }
 });
 
