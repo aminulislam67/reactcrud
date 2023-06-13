@@ -88,5 +88,14 @@
     "dateOfBirth": "2023-06-15",
     "gender": "male",
     "password": "444"
+  },
+  {
+    "firstName": "Ezio",
+    "lastName": "Auditore",
+    "email": "ai283087@gmail.com",
+    "username": "aminul21",
+    "dateOfBirth": "2023-06-28",
+    "gender": "male",
+    "password": "111"
   }
 ]

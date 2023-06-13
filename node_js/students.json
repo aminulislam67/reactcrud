@@ -1,42 +1,82 @@
 [
   {
-    "firstName": "Ezio",
-    "lastName": "Auditore",
-    "studentId": "s21",
-    "email": "md.aminul.islam2@g.bracu.ac.bd",
-    "dateOfBirth": "2023-06-08",
-    "admissionYear": "2222"
-  },
-  {
-    "firstName": "Ahmed",
-    "lastName": "Ruhan",
-    "studentId": "21",
-    "email": "ahmed.mahir.ruhan@g.bracu.ac.bd",
-    "dateOfBirth": "2023-06-13",
-    "admissionYear": "2222"
-  },
-  {
-    "firstName": "Ezio",
-    "lastName": "Auditore",
-    "studentId": "1212",
-    "email": "md.aminul.islam2@g.bracu.ac.bd",
-    "dateOfBirth": "2023-06-14",
-    "admissionYear": "2222"
-  },
-  {
-    "firstName": "Aminul",
+    "firstName": "Md. Aminul",
     "lastName": "Islam",
-    "studentId": "2111",
+    "studentId": 1,
     "email": "aminulislam21123@gmail.com",
+    "dateOfBirth": "2023-06-17",
+    "admissionYear": "222222"
+  },
+  {
+    "firstName": "Md.",
+    "lastName": "Alam",
+    "studentId": 2,
+    "email": "ashraful.alam1@bracu.ac.bd",
+    "dateOfBirth": "2023-06-22",
+    "admissionYear": "222223"
+  },
+  {
+    "firstName": "Md.",
+    "lastName": "Alam1",
+    "studentId": 3,
+    "email": "ashraful.alam@bracu.ac.bd",
     "dateOfBirth": "2023-06-14",
+    "admissionYear": "22223"
+  },
+  {
+    "firstName": "Ezio",
+    "lastName": "Auditore",
+    "studentId": 4,
+    "email": "ai283087@gmail.com",
+    "dateOfBirth": "2023-06-16",
+    "admissionYear": "3333"
+  },
+  {
+    "firstName": "Ajmain",
+    "lastName": "Ahmed",
+    "studentId": 5,
+    "email": "yasar199510@gmail.com",
+    "dateOfBirth": "2023-06-22",
+    "admissionYear": "2023"
+  },
+  {
+    "firstName": "Ezio",
+    "lastName": "Auditore",
+    "studentId": 6,
+    "email": "ai283087@gmail.com",
+    "dateOfBirth": "2023-07-04",
+    "admissionYear": "2023"
+  },
+  {
+    "firstName": "Ezio",
+    "lastName": "Auditore",
+    "studentId": 7,
+    "email": "ai283087@gmail.com",
+    "dateOfBirth": "2023-06-16",
+    "admissionYear": "3333"
+  },
+  {
+    "firstName": "tawhid",
+    "lastName": "dddd",
+    "studentId": 8,
+    "email": "ai283087@gmail.com",
+    "dateOfBirth": "2023-06-15",
     "admissionYear": "2222"
   },
   {
-    "firstName": "Lio",
-    "lastName": "messi",
-    "studentId": "2333",
+    "firstName": "adad",
+    "lastName": "adsad",
+    "studentId": 9,
+    "email": "yasar199510@gmail.com",
+    "dateOfBirth": "2023-06-15",
+    "admissionYear": "2023"
+  },
+  {
+    "firstName": "Ezio",
+    "lastName": "Auditore",
+    "studentId": 10,
     "email": "ai283087@gmail.com",
-    "dateOfBirth": "2023-06-10",
+    "dateOfBirth": "2023-06-15",
     "admissionYear": "3333"
   }
 ]

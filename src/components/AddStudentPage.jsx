@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
-const AddStudentPage = ({ history }) => {
+const AddStudentPage = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [studentId, setStudentId] = useState('');
@@ -10,7 +10,8 @@ const AddStudentPage = ({ history }) => {
   const [dateOfBirth, setDateOfBirth] = useState('');
   const [admissionYear, setAdmissionYear] = useState('');
 
-  var navigate = useNavigate();
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -31,17 +32,17 @@ const AddStudentPage = ({ history }) => {
         },
         body: JSON.stringify(newStudent)
       });
-  
+
       if (response.ok) {
         // Redirect to the display page
-        return navigate("/display");
+        navigate('/display');
       } else {
         console.error('Failed to add student');
       }
     } catch (error) {
       console.error('Error adding student:', error);
     }
-  
+
     // Clear the form fields after submission
     setFirstName('');
     setLastName('');
@@ -61,9 +62,9 @@ const AddStudentPage = ({ history }) => {
           boxShadow: '0 8px 40px -8px rgba(0, 191, 255, 0.8)',
         }}
       >
-       <h2 className="text-center">Add Student Information</h2>
+        <h2 className="text-center">Add Student Information</h2>
         <Form onSubmit={handleSubmit}>
-          <Form.Group controlId="firstName">
+        <Form.Group controlId="firstName">
             <Form.Label>First Name:</Form.Label>
             <Form.Control
               type="text"
